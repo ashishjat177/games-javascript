@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+    <main class="main-container">
+        <div id="board" class="board"></div>
+
+        <div id="playerStatus" class="player-status">
+             <div>Current player: <span id="currentPlayer"></span></div>
+             <div>Winner: <span id="winner"></span></div>
+        </div>
+        <div class="action-div">
+            <button class="start-btn" onclick="play()">role a dice</button>
+            <button class="reset-btn" onclick="reset()">reset</button>
+
+            <button class="start-btn" onclick="startAutoGame()">start auto game</button>
+        </div>
+    </main>
+    <script src="snake-and-ladder.js"></script>
+</body>
+</html>
