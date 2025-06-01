@@ -92,9 +92,21 @@ function setCurrentPlayerBackground(oldId, id, color) {
 
 
 
+function showDiceAnimation(diceNumber) {
+    const diceElem = document.createElement('div');
+    diceElem.className = 'dice-animation';
+    diceElem.innerText = `🎲 ${diceNumber}`;
+    document.body.appendChild(diceElem);
+
+    setTimeout(() => {
+        diceElem.remove();
+    }, 1000);
+}
+
 function roleADice() {
-    // Simulate rolling a dice
-   return Math.floor(Math.random() * (6*NO_OF_DICE) + 1)
+    const diceNumber = Math.floor(Math.random() * (6 * NO_OF_DICE) + 1);
+    showDiceAnimation(diceNumber);
+    return diceNumber;
 }
 
 function movePlayer(diceNumber) {
@@ -136,6 +148,13 @@ function movePlayer(diceNumber) {
     console.log(players[currentPlayer].name, positions[currentPlayer]);
 }
 
+function logPlayerPositions() {
+    console.table(players.map(player => ({
+        name: player.name,
+        position: positions[player.name]
+    })));
+}
+
 let nextPlayerInterval = null;
 
 
@@ -145,27 +164,33 @@ function reset() {
     });
 
     clearInterval(nextPlayerInterval);
-    document.getElementById('start-btn').style.disable = false;
+
+    const startBtn = document.querySelector('.start-btn');
+    setStyle(startBtn, {
+        pointerEvents: 'visible',
+        background: 'green',
+        cursor: 'pointer'
+    });
 
     winner = null;
     currentPlayer = players[0].name;
     document.getElementById('currentPlayer').innerText = currentPlayer;
 }
 
+// Update play function to include logging
 function play() {
-    if(winner !== null) {
+    if (winner !== null) {
         clearInterval(nextPlayerInterval);
-        return
+        return;
     }
-
 
     const diceNumber = roleADice();
     movePlayer(diceNumber);
+    logPlayerPositions();
 
     currentPlayer = (currentPlayer + 1) % players.length;
     const cp = document.getElementById('currentPlayer');
     cp.innerText = `${players[currentPlayer].name} at ${positions[currentPlayer]}`;
-
 }
 
 function startAutoGame() {
@@ -175,9 +200,21 @@ function startAutoGame() {
 }
 
 
+// Add game instructions
+function showInstructions() {
+    const instructions = `
+        Welcome to Snake and Ladder!
+        - Roll the dice to move your player.
+        - Avoid snakes and climb ladders.
+        - First player to reach position ${WIN_POSITION} wins!
+    `;
+    alert(instructions);
+}
+
+// Call showInstructions during initialization
 function init() {
+    showInstructions();
     createBoard(SIZE);
-    //reset initially to have all players at 0 position
     reset();
 }
 

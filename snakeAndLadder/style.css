@@ -36,3 +36,25 @@ button {
 .reset-btn {
     background-color: red;
 }
+
+.dice-animation {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    background: white;
+    border: 2px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    animation: fadeOut 1s ease-in-out;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

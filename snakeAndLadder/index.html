@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Snake and Ladder</title>
     <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
+    <h1>Snake and Ladder Game</h1>
     <main class="main-container">
         <div id="board" class="board"></div>
 
@@ -15,10 +16,9 @@
              <div>Winner: <span id="winner"></span></div>
         </div>
         <div class="action-div">
-            <button class="start-btn" onclick="play()">role a dice</button>
-            <button class="reset-btn" onclick="reset()">reset</button>
-
-            <button class="start-btn" onclick="startAutoGame()">start auto game</button>
+            <button class="start-btn" onclick="play()" aria-label="Roll a dice">Roll a dice</button>
+            <button class="reset-btn" onclick="reset()" aria-label="Reset the game">Reset</button>
+            <button class="start-btn" onclick="startAutoGame()" aria-label="Start auto game">Start auto game</button>
         </div>
     </main>
     <script src="snake-and-ladder.js"></script>
