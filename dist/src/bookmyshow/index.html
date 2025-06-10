@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <link rel="stylesheet" crossorigin href="/assets/bookmyshow-BPZova52.css">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="movies-dropdown-container">
+                <label for="movies">Please select a movie</label>
+            </div>
+
+            <div class="seat-info">
+                Available: <div class="seat"></div>
+                Selected: <div class="seat selected"></div>
+                occupied: <div class="seat occupied"></div>
+            </div>
+        </header>
+        <section>
+            <div class="screen"></div>
+            <div class="seat-container">
+            </div>
+        </section>
+
+        <footer>
+            <div class="price-container">
+                <div class="total-selected-seats"></div>
+                <div class="total-price"></div>
+            </div>
+            <button class="book-btn" onclick="handleBookTicket()">Book tickets</button>
+        </footer>
+    </div>
+
+    <script src="./boomyshow.js"></script>
+</body>
+</html>
